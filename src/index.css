@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700&family=Caveat:wght@400;700&display=swap');
+
+@theme {
+  /* Love color palette */
+  --color-love-50: #fff1f2;
+  --color-love-100: #ffe4e6;
+  --color-love-200: #fecdd3;
+  --color-love-300: #fda4af;
+  --color-love-400: #fb7185;
+  --color-love-500: #f43f5e;
+  --color-love-600: #e11d48;
+  --color-love-700: #be123c;
+  --color-love-800: #9f1239;
+  --color-love-900: #881337;
+
+  /* Font families */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-handwriting: "Caveat", "Comic Sans MS", cursive;
+
+  /* Animations */
+  --animate-float-up: floatUp 10s linear infinite;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes floatUp {
+    0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.8; }
+    90%  { opacity: 0.4; }
+    100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+  }
+}
+
+@layer base {
+  body {
+    background-color: #1a0533;
+    color: #e9d5ff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+@layer components {
+  /* Polaroid photo frame */
+  .polaroid-frame {
+    background: white;
+    padding: 1rem;
+    padding-bottom: 3rem;
+    box-shadow:
+      0 10px 25px -5px rgba(244, 63, 94, 0.2),
+      0 8px 10px -6px rgba(244, 63, 94, 0.1),
+      0 20px 40px rgba(0,0,0,0.12);
+    border: 1px solid #f1f5f9;
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .polaroid-frame:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 50;
+    box-shadow:
+      0 20px 50px -10px rgba(244, 63, 94, 0.35),
+      0 15px 25px rgba(0,0,0,0.2);
+  }
+
+  /* Glowing Yes button */
+  .glow-btn {
+    background: linear-gradient(135deg, var(--color-love-400), var(--color-love-600));
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    box-shadow: 0 0 20px rgba(244, 63, 94, 0.5), 0 4px 15px rgba(244, 63, 94, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.125rem;
+  }
+
+  .glow-btn:hover {
+    background: linear-gradient(135deg, var(--color-love-500), var(--color-love-700));
+    box-shadow: 0 0 35px rgba(244, 63, 94, 0.8), 0 8px 25px rgba(244, 63, 94, 0.4);
+    transform: translateY(-3px) scale(1.05);
+  }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
