@@ -46,15 +46,15 @@ const GallerySection = () => (
           transition={{ delay: index * 0.15, duration: 0.6, type: 'spring', bounce: 0.3 }}
           className="polaroid-frame w-full max-w-[280px] mx-auto sm:max-w-none"
         >
-          <div className="bg-pink-100 w-full h-[320px] sm:h-[350px] overflow-hidden rounded-sm relative">
+          <div style={{ background: '#fce7f3', padding: '0.4rem', borderRadius: '4px' }}>
             <img
-              src={`${import.meta.env.BASE_URL}photos/${photo.num}.jpg`}
+              src={`./photos/${photo.num}.jpg`}
               alt={`Meku ${photo.num}`}
-              className="absolute inset-0 w-full h-full object-cover block"
+              style={{ width: '100%', height: 'auto', display: 'block', minHeight: '250px', objectFit: 'cover' }}
               loading="lazy"
             />
           </div>
-          <p className="font-handwriting text-center mt-4 text-gray-800 font-bold italic text-2xl md:text-3xl">
+          <p className="font-handwriting text-center mt-4 text-black font-bold italic text-3xl md:text-4xl">
             {photo.caption}
           </p>
         </motion.div>

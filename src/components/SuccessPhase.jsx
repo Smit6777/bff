@@ -51,15 +51,15 @@ const SuccessPhase = () => {
                transition={{ delay: 0.2 * index }}
                className="polaroid-frame"
              >
-               <div className="bg-love-100 w-full h-[300px] sm:h-[320px] overflow-hidden rounded-sm relative">
+               <div style={{ background: '#fce7f3', padding: '0.4rem', borderRadius: '4px' }}>
                   <img 
-                    src={`${import.meta.env.BASE_URL}photos/${num}.jpg`} 
+                    src={`./photos/${num}.jpg`} 
                     alt={`Meku ${num}`} 
-                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ width: '100%', height: 'auto', display: 'block', minHeight: '250px', objectFit: 'cover' }}
                     loading="lazy"
                   />
                </div>
-               <p className="font-handwriting text-2xl md:text-3xl font-bold mt-4 text-zinc-900 italic">
+               <p className="font-handwriting text-3xl md:text-4xl font-bold mt-4 text-black italic">
                  {index === 0 ? "My favorite smile" : 
                   index === 1 ? "Absolutely stunning" :
                   index === 2 ? "Thinking of you" :
