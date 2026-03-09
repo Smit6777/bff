@@ -5,8 +5,11 @@ const FloatingHearts = () => {
   const [hearts, setHearts] = useState([]);
 
   useEffect(() => {
-    // Generate initial hearts
-    const newHearts = Array.from({ length: 30 }).map((_, i) => ({
+    // Generate initial hearts, fewer for better mobile rendering performance
+    const isMobile = window.innerWidth < 768;
+    const heartCount = isMobile ? 8 : 30;
+    
+    const newHearts = Array.from({ length: heartCount }).map((_, i) => ({
       id: i,
       x: Math.random() * 100, // percentage of screen width
       size: Math.random() * 20 + 10, // px size between 10 and 30

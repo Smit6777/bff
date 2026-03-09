@@ -24,7 +24,18 @@ const generateParticles = (count) =>
   }));
 
 const Confetti = () => {
-  const [particles] = useState(() => generateParticles(55));
+  const [particles, setParticles] = useState([]);
+  const [balloons, setBalloons] = useState([]);
+
+  useEffect(() => {
+    // Greatly reduce particle generation on low-end mobile devices 
+    // to improve FPS and battery consumption.
+    const isMobile = window.innerWidth < 768;
+    setParticles(generateParticles(isMobile ? 12 : 55));
+    
+    const allBalloons = ['🎈', '🎀', '🎊', '🎉', '🌟', '✨', '🎈', '🎀'];
+    setBalloons(isMobile ? allBalloons.slice(0, 3) : allBalloons);
+  }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -58,7 +69,7 @@ const Confetti = () => {
       ))}
 
       {/* Floating balloons */}
-      {['🎈', '🎀', '🎊', '🎉', '🌟', '✨', '🎈', '🎀'].map((emoji, i) => (
+      {balloons.map((emoji, i) => (
         <motion.div
           key={`balloon-${i}`}
           className="absolute text-3xl"
