@@ -13,7 +13,7 @@ const reasons = [
 const ReasonsSection = () => (
   <section
     id="reasons"
-    style={{ minHeight: '100vh', padding: '5rem 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10 }}
+    className="min-h-screen py-20 px-4 flex flex-col items-center justify-center relative z-10 overflow-hidden"
   >
     {/* Section title */}
     <motion.div
@@ -21,19 +21,19 @@ const ReasonsSection = () => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.7 }}
-      style={{ textAlign: 'center', marginBottom: '3.5rem' }}
+      className="text-center mb-10 md:mb-14"
     >
-      <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>💜</div>
-      <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 700, color: '#c4b5fd', marginBottom: '0.5rem' }}>
+      <div className="text-4xl md:text-5xl mb-2">💜</div>
+      <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-purple-300 mb-2">
         Why You're My BFF
       </h2>
-      <p style={{ fontFamily: '"Caveat", cursive', fontSize: '1.4rem', color: '#e9d5ff' }}>
+      <p className="font-handwriting text-2xl md:text-3xl text-purple-200 px-2">
         (endless list, but here are some 💫)
       </p>
     </motion.div>
 
     {/* Reasons grid */}
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: '960px', width: '100%' }}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-5xl w-full px-2 sm:px-4">
       {reasons.map((reason, i) => (
         <motion.div
           key={i}
@@ -42,22 +42,13 @@ const ReasonsSection = () => (
           whileHover={{ scale: 1.04, y: -4 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ delay: i * 0.1, duration: 0.5 }}
-          style={{
-            background: 'rgba(255,255,255,0.06)',
-            backdropFilter: 'blur(12px)',
-            border: '1px solid rgba(196, 181, 253, 0.2)',
-            borderRadius: '1.25rem',
-            padding: '1.75rem',
-            cursor: 'default',
-            transition: 'box-shadow 0.3s',
-            boxShadow: '0 4px 30px rgba(139,92,246,0.1)',
-          }}
+          className="bg-white/5 backdrop-blur-md border border-purple-300/20 rounded-2xl p-6 shadow-[0_4px_30px_rgba(139,92,246,0.1)] transition-shadow duration-300 hover:shadow-[0_8px_40px_rgba(139,92,246,0.2)]"
         >
-          <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>{reason.emoji}</div>
-          <h3 style={{ fontFamily: '"Playfair Display", serif', fontSize: '1.3rem', fontWeight: 700, color: '#f9a8d4', marginBottom: '0.5rem' }}>
+          <div className="text-4xl mb-3">{reason.emoji}</div>
+          <h3 className="font-serif text-xl md:text-2xl font-bold text-pink-300 mb-2">
             {reason.title}
           </h3>
-          <p style={{ color: '#d1d5db', lineHeight: 1.7, fontSize: '0.95rem' }}>
+          <p className="text-gray-300 leading-relaxed text-sm md:text-base">
             {reason.text}
           </p>
         </motion.div>

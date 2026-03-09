@@ -9,7 +9,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '2rem', position: 'relative', zIndex: 10 }}
+      className="min-h-screen flex flex-col items-center justify-center text-center px-4 py-12 md:p-8 relative z-10 overflow-hidden"
     >
       {/* Sparkle emojis around */}
       {['✨', '🌟', '💫', '⭐', '✨', '🌟'].map((s, i) => (
@@ -33,7 +33,7 @@ const HeroSection = () => {
       <motion.div
         animate={{ scale: [1, 1.12, 1], rotate: [0, 3, -3, 0] }}
         transition={{ duration: 3, repeat: Infinity }}
-        style={{ fontSize: '5rem', marginBottom: '1rem' }}
+        className="text-6xl md:text-7xl lg:text-[5rem] mb-4 md:mb-6"
       >
         🎂🎉🎈
       </motion.div>
@@ -43,12 +43,8 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, type: 'spring', bounce: 0.4 }}
+        className="font-serif font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] leading-tight mb-4"
         style={{
-          fontFamily: '"Playfair Display", serif',
-          fontWeight: 700,
-          fontSize: 'clamp(2.8rem, 9vw, 6rem)',
-          lineHeight: 1.1,
-          marginBottom: '1rem',
           background: 'linear-gradient(90deg, #f9a8d4, #fde68a, #c4b5fd, #6ee7b7, #fda4af)',
           backgroundSize: '200%',
           WebkitBackgroundClip: 'text',
@@ -66,7 +62,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        style={{ fontFamily: '"Caveat", cursive', fontSize: '1.8rem', color: '#e9d5ff', marginBottom: '0.5rem' }}
+        className="font-handwriting text-2xl md:text-3xl text-purple-200 mb-2 md:mb-4 px-2"
       >
         Today is ALL about you 💜
       </motion.p>
@@ -75,7 +71,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        style={{ color: '#c4b5fd', fontSize: '1.1rem', maxWidth: '500px', lineHeight: 1.6, marginBottom: '3rem' }}
+        className="text-purple-300 text-lg md:text-xl max-w-lg leading-relaxed mb-8 md:mb-12 px-4"
       >
         From your bestie Smitu, with all the love in the world 🌸
       </motion.p>

@@ -15,7 +15,7 @@ const rotations = [-4, 3, -2, 4, -3, 2];
 const GallerySection = () => (
   <section
     id="gallery"
-    style={{ minHeight: '100vh', padding: '5rem 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10 }}
+    className="min-h-screen py-20 px-4 flex flex-col items-center justify-center relative z-10 overflow-hidden"
   >
     {/* Section title */}
     <motion.div
@@ -23,19 +23,19 @@ const GallerySection = () => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.7 }}
-      style={{ textAlign: 'center', marginBottom: '3rem' }}
+      className="text-center mb-8 md:mb-12"
     >
-      <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>📸</div>
-      <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 700, color: '#f9a8d4', marginBottom: '0.5rem' }}>
+      <div className="text-4xl md:text-5xl mb-2">📸</div>
+      <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-pink-300 mb-2">
         Our Memories
       </h2>
-      <p style={{ fontFamily: '"Caveat", cursive', fontSize: '1.4rem', color: '#c4b5fd' }}>
+      <p className="font-handwriting text-2xl md:text-3xl text-purple-300 px-2">
         because every photo with you is a treasure 🌟
       </p>
     </motion.div>
 
     {/* Polaroid grid */}
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem', maxWidth: '1000px', width: '100%', padding: '0 1rem' }}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl w-full px-2 sm:px-4">
       {photos.map((photo, index) => (
         <motion.div
           key={photo.num}
@@ -44,16 +44,16 @@ const GallerySection = () => (
           whileHover={{ scale: 1.07, rotate: 0, zIndex: 50 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ delay: index * 0.15, duration: 0.6, type: 'spring', bounce: 0.3 }}
-          className="polaroid-frame"
+          className="polaroid-frame w-full max-w-[280px] mx-auto sm:max-w-none"
         >
-          <div style={{ background: '#fce7f3', aspectRatio: '3/4', overflow: 'hidden', borderRadius: '2px' }}>
+          <div className="bg-pink-100 aspect-[3/4] overflow-hidden rounded-sm">
             <img
-              src={`/photos/${photo.num}.jpg`}
+              src={`${import.meta.env.BASE_URL}photos/${photo.num}.jpg`}
               alt={`Meku ${photo.num}`}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              className="w-full h-full object-cover block"
             />
           </div>
-          <p style={{ fontFamily: '"Caveat", cursive', textAlign: 'center', marginTop: '0.75rem', color: '#6b7280', fontStyle: 'italic', fontSize: '1rem' }}>
+          <p className="font-handwriting text-center mt-3 text-gray-500 italic text-xl">
             {photo.caption}
           </p>
         </motion.div>

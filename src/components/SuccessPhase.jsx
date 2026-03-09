@@ -16,13 +16,13 @@ const SuccessPhase = () => {
         <motion.img 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 0.15, x: 0 }}
-          src="/photos/3.jpg" 
+          src={`${import.meta.env.BASE_URL}photos/3.jpg`} 
           className="h-64 rounded-full object-cover grayscale sepia" 
         />
         <motion.img 
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 0.15, x: 0 }}
-          src="/photos/4.jpg" 
+          src={`${import.meta.env.BASE_URL}photos/4.jpg`} 
           className="h-64 rounded-full object-cover grayscale sepia self-end" 
         />
       </div>
@@ -53,7 +53,7 @@ const SuccessPhase = () => {
              >
                <div className="bg-love-100 aspect-[3/4] w-full overflow-hidden rounded-sm">
                   <img 
-                    src={`/photos/${num}.jpg`} 
+                    src={`${import.meta.env.BASE_URL}photos/${num}.jpg`} 
                     alt={`Meku ${num}`} 
                     className="w-full h-full object-cover"
                   />

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const LetterSection = () => (
   <section
     id="letter"
-    style={{ minHeight: '100vh', padding: '5rem 2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10 }}
+    className="min-h-screen py-20 px-4 flex flex-col items-center justify-center relative z-10 overflow-hidden"
   >
     {/* Section title */}
     <motion.div
@@ -12,10 +12,10 @@ const LetterSection = () => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.7 }}
-      style={{ textAlign: 'center', marginBottom: '2.5rem' }}
+      className="text-center mb-10"
     >
-      <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>💌</div>
-      <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 700, color: '#fde68a', marginBottom: '0.5rem' }}>
+      <div className="text-4xl md:text-5xl mb-2">💌</div>
+      <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-200 mb-2">
         A Note From Smitu
       </h2>
     </motion.div>
@@ -26,50 +26,39 @@ const LetterSection = () => (
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ delay: 0.2, duration: 0.8, type: 'spring', bounce: 0.3 }}
-      style={{
-        maxWidth: '680px',
-        width: '100%',
-        background: 'rgba(255,255,255,0.07)',
-        backdropFilter: 'blur(20px)',
-        border: '1px solid rgba(255,255,255,0.12)',
-        borderRadius: '2rem',
-        padding: '3rem',
-        boxShadow: '0 0 80px rgba(196, 181, 253, 0.15), 0 25px 50px rgba(0,0,0,0.3)',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+      className="max-w-[680px] w-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 md:p-12 shadow-[0_0_80px_rgba(196,181,253,0.15),0_25px_50px_rgba(0,0,0,0.3)] relative overflow-hidden mx-auto"
     >
       {/* Decorative glow */}
-      <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '180px', height: '180px', background: 'radial-gradient(circle, rgba(168,85,247,0.3), transparent)', borderRadius: '50%', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', bottom: '-40px', left: '-40px', width: '180px', height: '180px', background: 'radial-gradient(circle, rgba(236,72,153,0.25), transparent)', borderRadius: '50%', pointerEvents: 'none' }} />
+      <div className="absolute -top-10 -right-10 w-44 h-44 bg-[radial-gradient(circle,rgba(168,85,247,0.3),transparent)] rounded-full pointer-events-none" />
+      <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-[radial-gradient(circle,rgba(236,72,153,0.25),transparent)] rounded-full pointer-events-none" />
 
       {/* Letter content */}
-      <p style={{ fontFamily: '"Caveat", cursive', fontSize: '1.4rem', color: '#c4b5fd', marginBottom: '1rem' }}>
+      <p className="font-handwriting text-2xl md:text-3xl text-purple-300 mb-4">
         Dear Meku,
       </p>
 
-      <p style={{ fontFamily: '"Inter", sans-serif', fontSize: '1.05rem', color: '#e9d5ff', lineHeight: 1.85, marginBottom: '1.2rem' }}>
+      <p className="font-sans text-base md:text-lg text-purple-100 leading-relaxed mb-5">
         I'm not great with words (you know this 😅) but I really needed you to know how much you mean to me on your special day.
       </p>
 
-      <p style={{ fontFamily: '"Inter", sans-serif', fontSize: '1.05rem', color: '#e9d5ff', lineHeight: 1.85, marginBottom: '1.2rem' }}>
+      <p className="font-sans text-base md:text-lg text-purple-100 leading-relaxed mb-5">
         Having you as my best friend is one of the best things that's ever happened to me. You make ordinary days feel special, and your laugh is literally contagious. I don't know what I'd do without your chaos in my life honestly 💜
       </p>
 
-      <p style={{ fontFamily: '"Inter", sans-serif', fontSize: '1.05rem', color: '#e9d5ff', lineHeight: 1.85, marginBottom: '1.2rem' }}>
+      <p className="font-sans text-base md:text-lg text-purple-100 leading-relaxed mb-5">
         I hope today feels as magical as you are. You deserve all the good things — all the cake, all the smiles, all the happiness this world has to offer. You deserve a day that matches your energy. 🎉
       </p>
 
-      <p style={{ fontFamily: '"Inter", sans-serif', fontSize: '1.05rem', color: '#e9d5ff', lineHeight: 1.85, marginBottom: '2rem' }}>
+      <p className="font-sans text-base md:text-lg text-purple-100 leading-relaxed mb-8">
         Thank you for being YOU. Never change. 🌟
       </p>
 
       {/* Signature */}
-      <div style={{ borderTop: '1px solid rgba(196,181,253,0.2)', paddingTop: '1.5rem', textAlign: 'right' }}>
-        <p style={{ fontFamily: '"Caveat", cursive', fontSize: '2rem', color: '#f9a8d4', fontWeight: 700 }}>
+      <div className="border-t border-purple-300/20 pt-6 text-right">
+        <p className="font-handwriting text-3xl md:text-4xl text-pink-300 font-bold">
           Happy Birthday, Meku 🎂
         </p>
-        <p style={{ fontFamily: '"Caveat", cursive', fontSize: '1.5rem', color: '#c4b5fd', marginTop: '0.25rem' }}>
+        <p className="font-handwriting text-2xl md:text-3xl text-purple-300 mt-1">
           — your Smitu 💜
         </p>
       </div>
@@ -81,7 +70,7 @@ const LetterSection = () => (
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay: 0.8 }}
-      style={{ marginTop: '3rem', textAlign: 'center', color: '#6b7280', fontSize: '0.9rem', fontFamily: '"Caveat", cursive', fontSize: '1.2rem', color: '#9ca3af' }}
+      className="mt-12 text-center font-handwriting text-xl text-gray-400"
     >
       made with 💜 just for you, Meku
     </motion.p>
