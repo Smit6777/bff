@@ -48,7 +48,7 @@ const GallerySection = () => (
         >
           <div style={{ background: '#fce7f3', padding: '0.4rem', borderRadius: '4px' }}>
             <img
-              src={`./photos/${photo.num}.jpg`}
+              src={`${import.meta.env.BASE_URL}photos/${photo.num}.jpg`}
               alt={`Meku ${photo.num}`}
               style={{ width: '100%', height: 'auto', display: 'block', minHeight: '250px', objectFit: 'cover' }}
               loading="lazy"
